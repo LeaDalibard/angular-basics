@@ -27,16 +27,23 @@
 
     <h3>Users</h3>
 
-    <li ng-repeat="user in users">{{user.name}}
+    <li ng-repeat-start="user in users">{{user.name}}
         <ul>
             <li>Index:{{$index}}</li>
-            <li>Premier utilisateur ? {{$first}} </li>
-            <li>Dernier utilisateur ? {{$last}} </li>
-            <li>Index impair ? {{$odd}} </li>
-            <li>Index pair ? {{$even}} </li>
+            <li>Premier utilisateur ? {{$first}}</li>
+            <li>Dernier utilisateur ? {{$last}}</li>
+            <li>Index impair ? {{$odd}}</li>
+            <li>Index pair ? {{$even}}</li>
         </ul>
     </li>
+    <li ng-repeat-end>{{user.email}}</li>
 </div>
-
+<div ng-controller="userCtrl">
+    <ul>
+        <li ng-repeat="(key, value) in user">
+            {{key}} : {{value}}
+        </li>
+    </ul>
+</div>
 </body>
 </html>
