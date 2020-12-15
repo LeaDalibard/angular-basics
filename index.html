@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" ng-app="appNom">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="main.js"></script>
+    <title>Document</title>
+</head>
+<body ng-init="test=1">
+{{test}}
+<div ng-bind="1+1"></div>
+
+<p>ng-bind permet de cacher script pendant chargement de la page vs \{\{ 1+1}} </p>
+
+<div ng-controller="mainCtrl">
+    <p>Les expressions qui sont dans le controleur concernent uniquement le controleur. Ex :</p>{{name}}
+    <div ng-controller="childCtrl">
+        {{name}}
+        <div ng-controller="grantCtrl">
+            {{name}}
+            <p>Si expression n'ont défini prend valeur du parent.</p>
+        </div>
+    </div>
+
+    <h3>Users</h3>
+
+    <li ng-repeat="user in users">{{user.name}}
+        <ul>
+            <li>Index:{{$index}}</li>
+            <li>Premier utilisateur ? {{$first}} </li>
+            <li>Dernier utilisateur ? {{$last}} </li>
+            <li>Index impair ? {{$odd}} </li>
+            <li>Index pair ? {{$even}} </li>
+        </ul>
+    </li>
+</div>
+
+</body>
+</html>
