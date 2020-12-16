@@ -7,6 +7,9 @@ angular.module("appNom", []) //[] pour les dépendances + bien mettre le nom dan
             {name:"Jim",email:"jim@gmail.com"},
             {name:"Anna",email:"anna@gmail.com"},
             ];
+        $scope.addUser=function(){
+            $scope.users.push({name : "New User"});
+        }
     }])//$scope-> variable modifiable dans controller
     .controller("childCtrl", ["$scope", function ($scope) {
     }])
