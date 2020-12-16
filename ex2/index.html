@@ -20,10 +20,10 @@
     <table class="table">
         <tr>
             <th>Nom</th>
-            <th>Ptd</th>
-            <th>J</th>
-            <th>G</th>
-            <th>N</th>
+            <th><button ng-click="sort('pts')">Pts</button></th>
+            <th><button ng-click="sort('j')">J</button></th>
+            <th><button ng-click="sort('g')">G</button></th>
+            <th><button ng-click="sort('n')">N</button></th>
         </tr>
         <tr ng-repeat="team in teams">
             <td>{{team.name}}</td>
@@ -35,7 +35,7 @@
         </tr>
 
     </table>
-    
+
 
 </div>
 
