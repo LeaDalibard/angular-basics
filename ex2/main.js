@@ -16,6 +16,9 @@ angular.module("appNomTwo", [])
             g: "desc",
             n: "desc"
         };
+        $scope.arrow=function (col) {
+            return $scope.order[col]  == "desc" ? ">" : "<"
+        };
         $scope.sort = function (col) {
             $scope.teams.sort(function (a, b) {
                 if ($scope.order[col] == "desc") {
@@ -25,7 +28,8 @@ angular.module("appNomTwo", [])
                 }
             });
             $scope.order[col] = $scope.order[col] == "desc" ? "asc" : "desc";
-        }
+        };
+
     }])
 
 
