@@ -10,8 +10,16 @@ angular.module("appNomTwo", [])
             {name:"Jim",email:"jim@gmail.com"},
             {name:"Anna",email:"anna@gmail.com"},
         ];
+        $scope.limit=function(){
+            return 2;
+        }
+        $scope.filterValue={name:"Sam"};
+        $scope.order="name";
+        $scope.reverse=true;
 
-        $scope.filterValue={name:"Sam"}
+        $scope.inverser=function () {
+            $scope.reverse=!$scope.reverse;
+        }
     }])
 
 

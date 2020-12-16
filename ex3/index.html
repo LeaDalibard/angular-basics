@@ -45,6 +45,44 @@
     <!--Permet de filtrer pour avoir juste une info-->
     <p>{{users | filter:filterValue }}</p>
 
+    <h4>Avec ng-repeat</h4>
+
+    <input ng-model="username">
+    <!--recherche se fait direct dans le filtre username de ce qui est tapé dans input-->
+    <ul>
+        <li ng-repeat="user in users | filter:username">
+            {{user.name}}
+        </li>
+    </ul>
+
+    <ul>
+        <li ng-repeat="user in users | filter:username | limitTo:3">
+            {{user.name}}
+        </li>
+        <!--limitTo peut limiter les réusultats-->
+    </ul>
+
+    <ul>
+        <li ng-repeat="user in users | filter:username | limitTo:limit()">
+            {{user.name}}
+        </li>
+    </ul>
+
+    <ul>
+        <li ng-repeat="user in users | filter:username | orderBy:'name':true">
+            {{user.name}}
+        </li>
+        <!--true inverse l'ordre, décroissant, par défaut croissant-->
+    </ul>
+
+    <ul>
+        <li ng-repeat="user in users | filter: username | orderBy:order:reverse">
+            {{user.name}}
+        </li>
+<button ng-click="inverser()">Inverser</button>
+    </ul>
+
+
 </div>
 
 
