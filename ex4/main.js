@@ -16,13 +16,27 @@ angular.module("appNomTwo", [])
             g: true,
             n: true
         };
+
+        $scope.nbToDisplay=3;
+        $scope.currentPage=0;
+
+        $scope.pages=new Array(Math.ceil($scope.teams.length/$scope.nbToDisplay));
+
         $scope.arrow=function(col){
             return $scope.order[col]? ">":"<";
         }
         $scope.onSort=function (col) {
             $scope.sort=col;
             $scope.order[col]=!$scope.order[col];
-            
+        }
+
+        $scope.onPage=function(index){
+            $scope.currentPage=index;
+        }
+
+        $scope.sliceTeam=function(teams){
+            var begin=$scope.currentPage* $scope.nbToDisplay;
+            return $scope.teams.slice(begin,begin+$scope.nbToDisplay);
         }
 
     }])

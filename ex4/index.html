@@ -18,22 +18,42 @@
 <div ng-controller="mainCtrl">
 
     <table class="table">
+
         <tr>
             <th>Nom</th>
-            <th><button ng-click="onSort('pts')">Pts {{arrow('pts')}}</button></th>
-            <th><button ng-click="onSort('j')">J {{arrow('j')}} </button></th>
-            <th><button ng-click="onSort('g')">G {{arrow('g')}}</button></th>
-            <th><button ng-click="onSort('n')">N {{arrow('n')}}</button></th>
+            <th>
+                <button ng-click="onSort('pts')">Pts {{arrow('pts')}}</button>
+            </th>
+            <th>
+                <button ng-click="onSort('j')">J {{arrow('j')}}</button>
+            </th>
+            <th>
+                <button ng-click="onSort('g')">G {{arrow('g')}}</button>
+            </th>
+            <th>
+                <button ng-click="onSort('n')">N {{arrow('n')}}</button>
+            </th>
         </tr>
-        <tr ng-repeat="team in teams | orderBy:sort:order[sort]">
+
+        <tr ng-repeat="team in sliceTeam(teams) | orderBy:sort:order[sort]">
             <td>{{team.name}}</td>
             <td>{{team.pts}}</td>
             <td>{{team.j}}</td>
             <td>{{team.g}}</td>
             <td>{{team.n}}</td>
         </tr>
-
     </table>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item" ng-repeat="page in pages track by $index" >
+                <!--Track by permet de donner identifiant unique à chaque élement du tableau car sinon tous undefined et le ng-repeat ne fonctionne pas si éléments tous identifiés pareil-->
+
+                <a href="#" ng-click="onPage($index)" class="page-link">{{$index+1}}</a>
+
+            </li>
+        </ul>
+
+    </nav>
 
 
 </div>
