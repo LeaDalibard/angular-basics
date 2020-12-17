@@ -21,6 +21,7 @@
 
 <div ng-controller="mainCtrl">
 
+
     <h3> Filtres</h3>
 
     <h4>Nombres</h4>
@@ -44,6 +45,7 @@
     <p>{{users | filter:'Sam' }}</p>
     <!--Permet de filtrer pour avoir juste une info-->
     <p>{{users | filter:filterValue }}</p>
+
 
     <h4>Avec ng-repeat</h4>
 
@@ -79,10 +81,16 @@
         <li ng-repeat="user in users | filter: username | orderBy:order:reverse">
             {{user.name}}
         </li>
-<button ng-click="inverser()">Inverser</button>
+        <button ng-click="inverser()">Inverser</button>
     </ul>
 
+    <h4>Select</h4>
 
+    <select ng-model="selectUser" ng-options="user.name for user in users">
+    </select>
+    {{selectUser}}
+    <input type="checkbox" ng-checked="selectUser.name=='Sam'" ng-model="sampleCheckBox" ng-false-value="'Off'" ng-true-value="'On'">
+    {{sampleCheckBox}}
 </div>
 
 
