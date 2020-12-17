@@ -6,14 +6,10 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <!-- fix to french convention -->
-    <script src="angular-locale_fr-fr.js"></script>
-
     <script src="main.js"></script>
-    <link rel="stylesheet" href="style.css">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
     <title>Document</title>
 </head>
 <body class="container">
@@ -21,23 +17,40 @@
 
 <div ng-controller="mainCtrl">
 
+    <ul class="nav nav-tabs">
+        <li ng-repeat="tab in tabs" ng-class="{active : isActive($index)}">
+            <a href="#" ng-click="setActive($index)">{{tab.title}} <span class="glyphicon glyphicon-remove"
+                                                                         aria-hidden="true"
+                                                                         ng-click="removeTab($index)"></span></a>
 
+        </li>
+    </ul>
+    <div class="tab-content">
+        {{tabs[active].content}}
+    </div>
     <h1>Gestion</h1>
 
-    <form action="" class="form" novalidate="" name="form">
+    <form action="" class="form-inline" novalidate="" name="form">
         <div class="form-group">
-            <label >Nom</label>
-            <input type="text" name='title' class="form-control">
+            <label>Nom</label>
+            <input type="text" name='title' class="form-control" ng-model="name">
         </div>
         <div>
-            <label >Contenu</label>
-            <textarea name="content" class="form-control"></textarea>
+            <label>Contenu</label>
+            <textarea name="content" class="form-control" ng-model="content"></textarea>
         </div>
         <br>
-        <button class="btn btn-success" aria-label="Left Align"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>  Ajouter un onglet</button>
 
+        <button class="btn btn-success" ng-click="addTab()" type="button"><span class="glyphicon glyphicon-plus"
+                                                                                aria-hidden="true"></span> Ajouter un
+            onglet
+        </button>
+
+        <!-- Ajouter type="button" pour que ça ne se refresh pas à chaque fois et que reste dynamique-->
     </form>
+
 </div>
+
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
