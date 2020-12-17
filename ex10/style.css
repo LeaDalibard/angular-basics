@@ -1,0 +1,19 @@
+input.ng-invalid-minlength{
+    background-color: hotpink;
+}
+
+input.ng-invalid-required{
+    background-color: purple;
+}
+
+#email.ng-invalid-email{
+    background-color: orangered;
+}
+/*
+input.ng-invalid.ng-dirty{
+    background-color: indianred;
+}*/
+
+input.ng-valid{
+    background-color: mediumseagreen;
+}
