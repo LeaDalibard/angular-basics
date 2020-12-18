@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-resource.js"></script>
+    <!--On ajoute script CDN pour angular resources + bien remplacer X.Y.Z par la version de angular-->
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <title>Document</title>
+</head>
+<body class="container">
+
+
+<div ng-controller="mainCtrl">
+
+    <ul class="nav nav-tabs">
+        <li ng-repeat="tab in tabs" ng-class="{active : isActive($index)}">
+            <a href="#" ng-click="setActive($index)">{{tab.name}} <span class="glyphicon glyphicon-remove"
+                                                                         aria-hidden="true"
+                                                                         ng-click="removeTab($index,tab.id)"></span></a>
+
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        {{tabs[active].content}}
+    </div>
+
+
+    <h1>Gestion</h1>
+    <div>
+        <div ng-if="isSubmit && form.$invalid">
+            <div ng-if="form.title.$invalid">
+                <ul>
+                    <li ng-repeat="(type,error) in form.title.$error">{{type}}</li>
+                </ul>
+            </div>
+            <div ng-if="form.content.$invalid">
+                <ul>
+                    <li ng-repeat="(type,error) in form.content.$error">{{type}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <form action="" class="form-inline" novalidate="" name="form">
+        <div class="form-group">
+            <label>Nom</label>
+            <input type="text" name='title' class="form-control" ng-model="tab.name" required
+                   ng-class="{submit_style:isSubmit}">
+        </div>
+        <!-- Classe submit_style seulement vrai si formulaire soumis-->
+
+        <div>
+            <label>Contenu</label>
+            <textarea name="content" class="form-control" ng-model="tab.content" required
+                      ng-class="{submit_style:isSubmit}"></textarea>
+        </div>
+        <br>
+
+        <button class="btn btn-success" ng-click="addTab(form.$valid)" type="button"><span
+                class="glyphicon glyphicon-plus"
+                aria-hidden="true"></span> Ajouter un
+            onglet
+        </button>
+
+        <!-- Ajouter type="button" pour que ça ne se refresh pas à chaque fois et que reste dynamique-->
+    </form>
+
+</div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
