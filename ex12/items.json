@@ -1,0 +1,14 @@
+[
+  {
+  name: "Computer",
+  price: 500
+},
+  {
+    name: "Ipad",
+    price: 350
+  },
+  {
+    name: "Smartphone",
+    price: 100
+  }
+]
