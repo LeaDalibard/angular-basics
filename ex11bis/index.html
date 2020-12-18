@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -30,23 +31,35 @@
         {{tabs[active].content}}
     </div>
 
+
+    <h1>Gestion</h1>
     <div>
         <div ng-if="isSubmit && form.$invalid">
-        Vous avez des erreurs.
+            <div ng-if="form.title.$invalid">
+                <ul>
+                    <li ng-repeat="(type,error) in form.title.$error">{{type}}</li>
+                </ul>
+            </div>
+            <div ng-if="form.content.$invalid">
+                <ul>
+                    <li ng-repeat="(type,error) in form.content.$error">{{type}}</li>
+                </ul>
+            </div>
         </div>
     </div>
-    <h1>Gestion</h1>
-    {{isSubmit}}
 
     <form action="" class="form-inline" novalidate="" name="form">
         <div class="form-group">
             <label>Nom</label>
-            <input type="text" name='title' class="form-control" ng-model="name" required>
+            <input type="text" name='title' class="form-control" ng-model="name" required
+                   ng-class="{submit_style:isSubmit}">
         </div>
+        <!-- Classe submit_style seulement vrai si formulaire soumis-->
 
         <div>
             <label>Contenu</label>
-            <textarea name="content" class="form-control" ng-model="content" required></textarea>
+            <textarea name="content" class="form-control" ng-model="content" required
+                      ng-class="{submit_style:isSubmit}"></textarea>
         </div>
         <br>
 
