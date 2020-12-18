@@ -25,25 +25,34 @@
 
         </li>
     </ul>
+
     <div class="tab-content">
         {{tabs[active].content}}
     </div>
 
+    <div>
+        <div ng-if="isSubmit && form.$invalid">
+        Vous avez des erreurs.
+        </div>
+    </div>
     <h1>Gestion</h1>
+    {{isSubmit}}
 
     <form action="" class="form-inline" novalidate="" name="form">
         <div class="form-group">
             <label>Nom</label>
-            <input type="text" name='title' class="form-control" ng-model="name">
+            <input type="text" name='title' class="form-control" ng-model="name" required>
         </div>
+
         <div>
             <label>Contenu</label>
-            <textarea name="content" class="form-control" ng-model="content"></textarea>
+            <textarea name="content" class="form-control" ng-model="content" required></textarea>
         </div>
         <br>
 
-        <button class="btn btn-success" ng-click="addTab()" type="button"><span class="glyphicon glyphicon-plus"
-                                                                                aria-hidden="true"></span> Ajouter un
+        <button class="btn btn-success" ng-click="addTab(form.$valid)" type="button"><span
+                class="glyphicon glyphicon-plus"
+                aria-hidden="true"></span> Ajouter un
             onglet
         </button>
 

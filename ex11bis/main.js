@@ -19,11 +19,14 @@ angular.module("appNomTwo", [])
         $scope.removeTab = function (index) {
             $scope.tabs.splice(index, 1);
         }
-        $scope.addTab = function () {
-            $scope.tabs.push({
-                title: $scope.name,
-                content: $scope.content
-            });
+        $scope.addTab = function (isValid) {
+            if(isValid){
+                $scope.tabs.push({
+                    title: $scope.name,
+                    content: $scope.content
+                });
+            }
+            $scope.isSubmit = true;
         }
 
     }])
