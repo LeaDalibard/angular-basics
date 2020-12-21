@@ -2,7 +2,7 @@
 
 ## ng-directives
 
-** Create Directives **
+**Create Directives**
 
 => Using the .directive function.
 
