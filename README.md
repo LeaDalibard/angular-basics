@@ -1,5 +1,43 @@
 # Angular Basics
 
+
+
+## AngularJS Applications
+
+### MVC in Angular
+
+**M** = Scope
+**V** = HTML
+**C**= Ng Controller
+
+### Module 
+
+Define Application =>  container for the different parts of an application . // in js files
+
+`var app = angular.module('myApp', []);`
+
+### Controller 
+
+Control Application, data => always belongto a module // in js files
+It is a **JavaScript Object**.
+With properties + method.
+Often store in one external file (`<script src="myController.js"></script>`)
+
+
+`app.controller('myCtrl', function($scope) {
+  $scope.firstName= "John";
+  $scope.lastName= "Doe";
+});`
+
+### Scope
+
+JavaScript object with properties and methods, which are available for both the view and the controller.
+
+* $rootScope : scope on the HTML element that contains the ng-app directive/available in the entire application
+
+
+
+
 ## ng-directives
 
 ### Create Directives
@@ -10,7 +48,6 @@ To invoke the new directive, make an HTML element with the same tag name as the 
 
 When naming a directive, you must use a camel case name : myExampleName,
 but when invoking it, you must use - separated name : my-example-name.
-
 
 
 * **ng-app** : AngularJS application
@@ -37,35 +74,18 @@ input.ng-invalid {
 </style>`
 
 
-## AngularJS Applications
+## Filters
 
-### MVC in Angular
+Can be added to format & order data + can create your own filter with new filter factory function.
 
-**M** = Scope
-**V** = HTML
-**C**= Ng Controller
+## Services
 
-### AngularJS Module 
+Function, or object, that is available for, and limited to, your AngularJS application
 
-Define Application =>  container for the different parts of an application . // in js files
+* **$http Service** : makes a request to the server, and lets your application handle the response.
 
-`var app = angular.module('myApp', []);`
-
-### AngularJS Controller 
-
-Control Application, data => always belongto a module // in js files
-It is a **JavaScript Object**.
-With properties + method.
-Often store in one external file (`<script src="myController.js"></script>`)
+Other services : $timeout, $interval, $location...
+Can create your own service.
 
 
-`app.controller('myCtrl', function($scope) {
-  $scope.firstName= "John";
-  $scope.lastName= "Doe";
-});`
 
-### AngularJS Scope
-
-JavaScript object with properties and methods, which are available for both the view and the controller.
-
-* $rootScope : scope on the HTML element that contains the ng-app directive/available in the entire application
