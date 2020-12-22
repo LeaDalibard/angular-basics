@@ -39,6 +39,12 @@ input.ng-invalid {
 
 ## AngularJS Applications
 
+### MVC in Angular
+
+**M** = Scope
+**V** = HTML
+**C**= Ng Controller
+
 ### AngularJS Module 
 
 Define Application =>  container for the different parts of an application . // in js files
@@ -58,3 +64,8 @@ Often store in one external file (`<script src="myController.js"></script>`)
   $scope.lastName= "Doe";
 });`
 
+### AngularJS Scope
+
+JavaScript object with properties and methods, which are available for both the view and the controller.
+
+* $rootScope : scope on the HTML element that contains the ng-app directive/available in the entire application
