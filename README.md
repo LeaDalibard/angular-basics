@@ -62,7 +62,11 @@ but when invoking it, you must use - separated name : my-example-name.
 
 * **ng-repeat** : looping
 
-* **ng-show** : elemeent displayed only if the expression in the ng-show attribute returns true
+* **ng-show/ng-hyde** : element (un)displayed only if the expression in the ng-show(hyde) attribute returns true
+
+* **ng-disabled** : binds ng data to the disabled attribute of HTML elements
+
+* **Events** : ng-keypress, ng-mouseenter, ng-mouseover, ng-click...
 
 ### Directives provide CSS Classes
 
@@ -86,6 +90,10 @@ Function, or object, that is available for, and limited to, your AngularJS appli
 
 Other services : $timeout, $interval, $location...
 Can create your own service.
+
+## Form
+
+The novalidate attribute is new in HTML5. It disables any default browser validation.
 
 
 
