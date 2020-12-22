@@ -66,6 +66,10 @@ but when invoking it, you must use - separated name : my-example-name.
 
 * **ng-disabled** : binds ng data to the disabled attribute of HTML elements
 
+* **ng-include** : can include HTML content that can contain angular js code 
+
+ex:`<div ng-include="'myFile.html'"></div>`
+
 * **Events** : ng-keypress, ng-mouseenter, ng-mouseover, ng-click...
 
 ### Directives provide CSS Classes
@@ -94,6 +98,10 @@ Can create your own service.
 ## Form
 
 The novalidate attribute is new in HTML5. It disables any default browser validation.
+
+## Routing
+
+**ngRoute module** routes the application to different pages without reloading the entire application
 
 
 
